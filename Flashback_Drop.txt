@@ -1,0 +1,20 @@
+ -Flashback Drop:
+==> si vous avez supprimé une table vous pouvez la récupérer a partir de la corbeille oracle(recycle bin), c'est le role de flashback drop.
+
+-create table test(id int) tablespace undo;
+=> créer une table dans un tablespace différent de tablespace system (on peut pas récupéré une table qui existe dans le tablespace system).
+
+-insert into test values(100);
+=> insérer des données dans la table crée.
+
+-drop table test;
+=> supprimer la table test.
+
+-select object_name, original_name, type, ts_name from recyclebin;
+=> pour vérifier les données existant dans la corbeille.
+
+-flashback table test to before drop;
+=> récupérer notre table test.
+
+-select id from test;
+=> notre table est récupérée 
